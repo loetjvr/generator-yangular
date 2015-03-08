@@ -57,7 +57,7 @@ describe('yangular:constant', function() {
 
   it('creates constant files', function() {
     assert.file([
-      'services/test.js',
+      'app/scripts/services/test.js',
       'test/spec/services/test.js'
     ]);
   });
@@ -73,7 +73,7 @@ describe('yangular:controller', function() {
 
   it('creates controller files', function() {
     assert.file([
-      'controllers/test.js',
+      'app/scripts/controllers/test.js',
       'test/spec/controllers/test.js'
     ]);
   });
@@ -89,7 +89,7 @@ describe('yangular:directive', function() {
 
   it('creates directive files', function() {
     assert.file([
-      'directives/test.js',
+      'app/scripts/directives/test.js',
       'test/spec/directives/test.js'
     ]);
   });
@@ -105,7 +105,7 @@ describe('yangular:factory', function() {
 
   it('creates factory files', function() {
     assert.file([
-      'services/test.js',
+      'app/scripts/services/test.js',
       'test/spec/services/test.js'
     ]);
   });
@@ -121,7 +121,7 @@ describe('yangular:filter', function() {
 
   it('creates filter files', function() {
     assert.file([
-      'filters/test.js',
+      'app/scripts/filters/test.js',
       'test/spec/filters/test.js'
     ]);
   });
@@ -156,7 +156,7 @@ describe('yangular:service', function() {
 
   it('creates service files', function() {
     assert.file([
-      'services/test.js',
+      'app/scripts/services/test.js',
       'test/spec/services/test.js'
     ]);
   });
@@ -172,7 +172,7 @@ describe('yangular:view', function() {
 
   it('creates view file', function() {
     assert.file([
-      'views/test.html'
+      'app/views/test.html'
     ]);
   });
 });

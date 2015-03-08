@@ -12,7 +12,7 @@ module.exports = yeoman.generators.Base.extend({
   },
   writing: {
     file: function() {
-      this.template('app/_view.html', 'views/' + this.filename + '.html');
+      this.template('app/_view.html', 'app/views/' + this.filename + '.html');
     }
   }
 });

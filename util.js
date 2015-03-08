@@ -1,20 +1,21 @@
-'use strict';
-
-var yeoman = require('yeoman-generator');
 var path = require('path');
 var fs = require('fs');
+var gulp = require('gulp');
+var inject = require('gulp-inject');
 
-module.exports = yeoman.generators.Base.extend({
-  initializing: function() {
-    this.argument('name', {type: String, required: true});
-    this.filename = this.name.toLowerCase();
+var exports = {
+  wireIndex: function() {
+    var appDir = path.join(process.cwd(), 'app/');
 
-    this.ctrlname = this._.capitalize(this._.camelize(this._.slugify(
-      this._.humanize(this.name))));
-
-    this.composeWith('yangular:view', {args: [this.name]});
-    this.composeWith('yangular:controller', {args: [this.name]});
-
+    gulp.src(appDir + 'index.html')
+    .pipe(inject(gulp.src(appDir + 'scripts/**/*.js'), {
+      starttag: '<!-- build:js({.tmp,app}) scripts/scripts.js -->',
+      endtag: '<!-- endbuild -->',
+      relative: true
+    }))
+    .pipe(gulp.dest(appDir));
+  },
+  wireRoute: function() {
     // if mock test
     if (process.cwd().split('/').pop() === 'temp-test') {
       return;
@@ -41,4 +42,6 @@ module.exports = yeoman.generators.Base.extend({
       });
     });
   }
-});
+};
+
+module.exports = exports;

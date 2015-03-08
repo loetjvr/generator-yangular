@@ -2,6 +2,7 @@
 
 var yeoman = require('yeoman-generator');
 var path = require('path');
+var util = require('../../util.js');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function() {
@@ -17,15 +18,14 @@ module.exports = yeoman.generators.Base.extend({
   },
   writing: {
     files: function() {
-      this.template('app/_controller.js', 'controllers/' +
+      this.template('app/_controller.js', 'app/scripts/controllers/' +
         this.filename + '.js');
       this.template('test/_controller.js', 'test/spec/controllers/' +
         this.filename + '.js');
 
-      // if not a mock test
-      if (process.cwd().split('/').pop() !== 'temp-test') {
-        this.spawnCommand('gulp', ['wiredep']);
-      }
+      this.on('end', function() {
+        util.wireIndex();
+      });
     }
   }
 });
