@@ -1,6 +1,6 @@
 # generator-yangular ![Build Status](https://travis-ci.org/loetjvr/generator-yangular.svg?branch=master) [![Dependency Status](https://david-dm.org/loetjvr/generator-yangular.svg)](https://david-dm.org/loetjvr/generator-yangular.svg)
 
-> Yeoman generator for AngularJS with [Gulp](http://gulpjs.com/), [Bootstrap](getbootstrap.com) and [LESS](http://lesscss.org/)
+> Yeoman generator for AngularJS with [Gulp](http://gulpjs.com/), [Bootstrap](http://getbootstrap.com) and [LESS](http://lesscss.org/)
 > based on [generator-angular](https://github.com/yeoman/generator-angular)
 
 ## Installation
