@@ -15,6 +15,11 @@ module.exports = yeoman.generators.Base.extend({
     this.composeWith('yangular:view', {args: [this.name]});
     this.composeWith('yangular:controller', {args: [this.name]});
 
+    // if mock test
+    if (process.cwd().split('/').pop() === 'temp-test') {
+      return;
+    }
+
     var script = '.when(\'/' + this.filename +
       '\', {\n        templateUrl: \'views/' +
       this.filename + '.html\',\n        controller: \'' +

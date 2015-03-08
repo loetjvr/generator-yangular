@@ -16,6 +16,11 @@ module.exports = yeoman.generators.Base.extend({
       this.template('app/_service.js', 'services/' + this.filename + '.js');
       this.template('test/_service.js', 'test/spec/services/' +
         this.filename + '.js');
+
+      // if not a mock test
+      if (process.cwd().split('/').pop() !== 'temp-test') {
+        this.spawnCommand('gulp', ['wiredep']);
+      }
     }
   }
 });

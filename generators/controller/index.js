@@ -22,7 +22,10 @@ module.exports = yeoman.generators.Base.extend({
       this.template('test/_controller.js', 'test/spec/controllers/' +
         this.filename + '.js');
 
-      this.spawnCommand('gulp', ['wiredep']);
+      // if not a mock test
+      if (process.cwd().split('/').pop() !== 'temp-test') {
+        this.spawnCommand('gulp', ['wiredep']);
+      }
     }
   }
 });
