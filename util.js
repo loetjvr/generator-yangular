@@ -16,11 +16,6 @@ var exports = {
     .pipe(gulp.dest(appDir));
   },
   wireRoute: function() {
-    // if mock test
-    if (process.cwd().split('/').pop() === 'temp-test') {
-      return;
-    }
-
     var script = '.when(\'/' + this.filename +
       '\', {\n        templateUrl: \'views/' +
       this.filename + '.html\',\n        controller: \'' +
