@@ -9,10 +9,12 @@ module.exports = yeoman.generators.Base.extend({
 
     this.argument('name', {type: String, required: true});
     this.filename = this.name.toLowerCase();
+
+    this.viewsDir = this.config.get('viewsDir') || this.options.viewsDir;
   },
   writing: {
     file: function() {
-      this.template('app/_view.html', 'app/views/' + this.filename + '.html');
+      this.template('app/_view.html', this.viewsDir + this.filename + '.html');
     }
   }
 });

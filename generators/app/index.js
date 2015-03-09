@@ -11,6 +11,9 @@ module.exports = yeoman.generators.Base.extend({
     this.appname = this.appname || path.basename(process.cwd());
     this.appname = this._.camelize(this._.slugify(
       this._.humanize(this.appname)));
+
+    this.config.set('scriptsDir', 'app/scripts/');
+    this.config.set('viewsDir', 'app/views/');
   },
   writing: {
     files: function() {

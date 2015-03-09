@@ -15,16 +15,17 @@ module.exports = yeoman.generators.Base.extend({
       this._.humanize(this.name))));
 
     this.appname = this.determineAppname();
+    this.scriptsDir = this.config.get('scriptsDir') || this.options.scriptsDir;
   },
   writing: {
     files: function() {
-      this.template('app/_controller.js', 'app/scripts/controllers/' +
+      this.template('app/_controller.js', this.scriptsDir + 'controllers/' +
         this.filename + '.js');
       this.template('test/_controller.js', 'test/spec/controllers/' +
         this.filename + '.js');
 
       this.on('end', function() {
-        util.wireIndex();
+        util.wireIndex(this.scriptsDir);
       });
     }
   }

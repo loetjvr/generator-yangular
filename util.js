@@ -6,22 +6,22 @@ var gulp = require('gulp');
 var inject = require('gulp-inject');
 
 var exports = {
-  wireIndex: function() {
-    var appDir = path.join(process.cwd(), 'app/');
+  wireIndex: function(scriptsDir) {
+    var appDir = path.join(process.cwd(), path.dirname(scriptsDir));
 
-    gulp.src(appDir + 'index.html')
-    .pipe(inject(gulp.src(appDir + 'scripts/**/*.js'), {
+    gulp.src(appDir + '/index.html')
+    .pipe(inject(gulp.src(scriptsDir + '**/*.js'), {
       starttag: '<!-- build:js({.tmp,app}) scripts/scripts.js -->',
       endtag: '<!-- endbuild -->',
       relative: true
     }))
     .pipe(gulp.dest(appDir));
   },
-  wireRoute: function() {
-    var script = '.when(\'/' + this.filename +
+  wireRoute: function(vars) {
+    var script = '})\n      .when(\'/' + vars.filename +
       '\', {\n        templateUrl: \'views/' +
-      this.filename + '.html\',\n        controller: \'' +
-      this.ctrlname + 'Ctrl\'\n      })\n      .otherwise({';
+      vars.filename + '.html\',\n        controller: \'' +
+      vars.ctrlname + 'Ctrl\'\n      }) //inject:route';
 
     var file = path.join(process.cwd(), 'app/scripts/app.js');
 
@@ -30,7 +30,7 @@ var exports = {
         return console.log(err);
       }
 
-      var result = data.replace(/.otherwise\(\{/g, script);
+      var result = data.replace(/\}\)( )\/\/inject:route/g, script);
 
       fs.writeFile(file, result, 'utf8', function(err) {
         if (err) {

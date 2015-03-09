@@ -52,6 +52,7 @@ describe('yangular:constant', function() {
     helpers.run(path.join(__dirname, '../generators/constant'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withArguments(['test'])
+      .withOptions({scriptsDir: 'app/scripts/'})
       .on('end', done);
   });
 
@@ -68,6 +69,7 @@ describe('yangular:controller', function() {
     helpers.run(path.join(__dirname, '../generators/controller'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withArguments(['test'])
+      .withOptions({scriptsDir: 'app/scripts/'})
       .on('end', done);
   });
 
@@ -84,6 +86,7 @@ describe('yangular:directive', function() {
     helpers.run(path.join(__dirname, '../generators/directive'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withArguments(['test'])
+      .withOptions({scriptsDir: 'app/scripts/'})
       .on('end', done);
   });
 
@@ -100,6 +103,7 @@ describe('yangular:factory', function() {
     helpers.run(path.join(__dirname, '../generators/factory'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withArguments(['test'])
+      .withOptions({scriptsDir: 'app/scripts/'})
       .on('end', done);
   });
 
@@ -116,6 +120,7 @@ describe('yangular:filter', function() {
     helpers.run(path.join(__dirname, '../generators/filter'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withArguments(['test'])
+      .withOptions({scriptsDir: 'app/scripts/'})
       .on('end', done);
   });
 
@@ -139,6 +144,7 @@ describe('yangular:filter', function() {
 //       .inDir(path.join(os.tmpdir(), './temp-test'))
 //       .withGenerators(deps)
 //       .withArguments(['test'])
+//       .withOptions({scriptsDir: 'app/scripts/'})
 //       .on('end', done);
 //   });
 
@@ -152,6 +158,7 @@ describe('yangular:service', function() {
     helpers.run(path.join(__dirname, '../generators/service'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withArguments(['test'])
+      .withOptions({scriptsDir: 'app/scripts/'})
       .on('end', done);
   });
 
@@ -168,6 +175,7 @@ describe('yangular:view', function() {
     helpers.run(path.join(__dirname, '../generators/view'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withArguments(['test'])
+      .withOptions({viewsDir: 'app/views/'})
       .on('end', done);
   });
 

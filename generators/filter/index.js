@@ -11,15 +11,18 @@ module.exports = yeoman.generators.Base.extend({
     this.argument('name', {type: String, required: true});
     this.filename = this.name.toLowerCase();
     this.appname = this.determineAppname();
+
+    this.scriptsDir = this.config.get('scriptsDir') || this.options.scriptsDir;
   },
   writing: {
     files: function() {
-      this.template('app/_filter.js', 'app/scripts/filters/' + this.filename + '.js');
+      this.template('app/_filter.js', this.scriptsDir +
+        'filters/' + this.filename + '.js');
       this.template('test/_filter.js', 'test/spec/filters/' +
         this.filename + '.js');
 
       this.on('end', function() {
-        util.wireIndex();
+        util.wireIndex(this.scriptsDir);
       });
     }
   }

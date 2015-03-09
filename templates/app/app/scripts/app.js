@@ -21,7 +21,7 @@ angular
       .when('/test', {
         templateUrl: 'views/test.html',
         controller: 'TestCtrl'
-      })
+      }) //inject:route
       .otherwise({
         redirectTo: '/'
       });

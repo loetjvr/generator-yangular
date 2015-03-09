@@ -14,6 +14,9 @@ module.exports = yeoman.generators.Base.extend({
     this.composeWith('yangular:view', {args: [this.name]});
     this.composeWith('yangular:controller', {args: [this.name]});
 
-    util.wireRoute();
+    util.wireRoute({
+      filename: this.filename,
+      ctrlname: this.ctrlname
+    });
   }
 });
