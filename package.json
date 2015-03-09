@@ -1,6 +1,6 @@
 {
   "name": "generator-yangular",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Yeoman generator for AngularJS with Gulp, Bootstrap and LESS",
   "license": "MIT",
   "main": "generators/app/index.js",
@@ -18,7 +18,8 @@
   },
   "files": [
     "generators",
-    "templates"
+    "templates",
+    "util.js"
   ],
   "keywords": [
     "yeoman-generator",
