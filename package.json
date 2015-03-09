@@ -1,12 +1,12 @@
 {
   "name": "generator-yangular",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "description": "Yeoman generator for AngularJS with Gulp, Bootstrap and LESS",
   "license": "MIT",
-  "main": "app/index.js",
+  "main": "generators/app/index.js",
   "repository": "loetjvr/generator-yangular",
   "author": {
-    "name": "",
+    "name": "Loet Jansen van Rensburg",
     "email": "",
     "url": "https://github.com/loetjvr"
   },
@@ -17,7 +17,8 @@
     "test": "mocha"
   },
   "files": [
-    "app"
+    "generators",
+    "templates"
   ],
   "keywords": [
     "yeoman-generator",
