@@ -9,10 +9,6 @@ var $ = require('gulp-load-plugins')();
 gulp.task('styles', function() {
   return gulp.src('app/styles/main.less')
     .pipe($.plumber())
-    // .pipe($.rubySass({
-    //   style: 'expanded',
-    //   precision: 10
-    // }))
     .pipe($.less())
     .pipe($.autoprefixer({browsers: ['last 1 version']}))
     .pipe(gulp.dest('.tmp/styles'));
@@ -23,6 +19,11 @@ gulp.task('jshint', function() {
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.jshint.reporter('fail'));
+});
+
+gulp.task('jscs', function() {
+  return gulp.src('app/scripts/**/*.js')
+    .pipe($.jscs());
 });
 
 gulp.task('html', ['styles'], function() {
@@ -144,7 +145,7 @@ gulp.task('watch', ['connect'], function() {
   gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('builddist', ['jshint', 'html', 'images', 'fonts', 'extras'],
+gulp.task('builddist', ['jshint', 'jscs', 'html', 'images', 'fonts', 'extras'],
   function() {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });

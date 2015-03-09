@@ -4,8 +4,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha test/gulp/test.js && gulp test",
-    "latest": "npm update --save-dev && bower update --save && bower update --save-dev"
+    "test": "gulp test"
   },
   "devDependencies": {
     "apache-server-configs": "^2.11.0",
@@ -20,6 +19,8 @@
     "gulp-filter": "^2.0.2",
     "gulp-flatten": "^0.0.4",
     "gulp-if": "^1.2.5",
+    "gulp-inject": "^1.2.0",
+    "gulp-jscs": "^1.4.0",
     "gulp-jshint": "^1.9.2",
     "gulp-less": "^3.0.1",
     "gulp-livereload": "^3.8.0",

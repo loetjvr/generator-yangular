@@ -12,7 +12,7 @@ npm install -g gulp bower yo generator-yangular
 
 Make a new directory, and `cd` into it:
 ```
-mkdir my-new-project && cd $_
+mkdir my-new-project && cd my-new-project
 ```
 
 Run `yo yangular`, optionally passing an app name:
@@ -24,6 +24,10 @@ yo yangular [app-name]
 Serve the project at `http://locahost:9000`
 ```
 gulp serve
+```
+Add the option `--open` to open and serve the project at `http://locahost:9000`
+```
+gulp serve --open
 ```
 Generate a `dist` directory ready for production
 ```

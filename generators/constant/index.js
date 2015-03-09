@@ -14,7 +14,8 @@ module.exports = yeoman.generators.Base.extend({
   },
   writing: {
     files: function() {
-      this.template('app/_constant.js', 'app/scripts/services/' + this.filename + '.js');
+      this.template('app/_constant.js', 'app/scripts/services/' +
+        this.filename + '.js');
       this.template('test/_constant.js', 'test/spec/services/' +
         this.filename + '.js');
 
